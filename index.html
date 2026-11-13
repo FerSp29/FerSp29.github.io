@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernando Santos | Fercho.dev — Software Developer (.NET & Full-Stack)</title>
+    <meta name="description" content="Portafolio profesional de Fernando Santos (Fercho.dev) - Junior Software Developer especializado en .NET, C#, Clean Architecture, APIs REST y soluciones Full-Stack modernas.">
+    <meta name="author" content="Fernando Santos">
+    <meta name="theme-color" content="#09090b">
+
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://FerSp29.github.io/">
+    <meta property="og:title" content="Fernando Santos | Fercho.dev — Software Developer (.NET & Full-Stack)">
+    <meta property="og:description" content="Especialista en Backend con C#, .NET, Clean Architecture, PostgreSQL y desarrollo Full-Stack.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/FerSp29">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Devicon for genuine tech stack logos -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS (Zero-build CDN for GitHub Pages) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#09090b',
+                        surface: '#0f1422',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Main Stylesheet (Custom glassmorphism, mouse tracker, animations) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon (SVG inline data uri) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%2232%22 height=%2232%22><text y=%2224%22 font-size=%2224%22 font-family=%22monospace%22 fill=%22%238b5cf6%22>&lt;/&gt;</text></svg>">
+</head>
+<body class="bg-base text-main antialiased selection:bg-purple-500/30 selection:text-purple-300">
+
+    <!-- Background Ambient Glow & Grid -->
+    <div class="ambient-mesh" aria-hidden="true">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="bg-grid-overlay"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="brand-logo group flex items-center gap-2.5 text-xl font-bold tracking-tight">
+                <span class="logo-badge flex items-center justify-center w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 group-hover:scale-105 group-hover:border-purple-400 transition-all duration-300 shadow-glow-sm">
+                    <i data-lucide="terminal" class="w-5 h-5"></i>
+                </span>
+                <span class="font-mono text-white tracking-wide">Fercho<span class="text-cyan-400">.dev</span></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/[0.08] p-1.5 rounded-full backdrop-blur-md shadow-inner-dark">
+                <a href="#hero" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-colors active">Inicio</a>
+                <a href="#sobre-mi" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-colors">Sobre mí</a>
+                <a href="#stack" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-colors">Stack</a>
+                <a href="#proyectos" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-colors">Proyectos</a>
+                <a href="#contacto" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Actions Right -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="social-icon-btn p-2.5 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 text-slate-300 hover:text-purple-300 transition-all duration-200" title="Perfil de GitHub">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#contacto" class="btn-gradient-pill flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full shadow-glow-purple">
+                    <span>Hablemos</span>
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl border border-white/10 bg-white/5 text-slate-200 hover:text-white focus:outline-none" aria-label="Abrir menú" aria-expanded="false">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-3 pb-6 border-b border-white/10 bg-base/95 backdrop-blur-2xl transition-all duration-300">
+            <div class="flex flex-col gap-2">
+                <a href="#hero" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 flex items-center justify-between">
+                    <span>Inicio</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+                </a>
+                <a href="#sobre-mi" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 flex items-center justify-between">
+                    <span>Sobre mí</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+                </a>
+                <a href="#stack" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 flex items-center justify-between">
+                    <span>Stack Tecnológico</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+                </a>
+                <a href="#proyectos" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 flex items-center justify-between">
+                    <span>Proyectos</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+                </a>
+                <a href="#contacto" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 flex items-center justify-between">
+                    <span>Contacto</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+                </a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 rounded-xl border border-white/10 text-slate-300 text-sm font-medium flex items-center justify-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
+                <a href="#contacto" class="flex-1 text-center py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold flex items-center justify-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Contactar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="relative pt-36 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center min-h-[92vh]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 flex flex-col items-start text-left">
+                        
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-slate-300 mb-6 backdrop-blur-md shadow-sm">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span>Barranquilla, Colombia</span>
+                            <span class="text-slate-600">•</span>
+                            <span class="text-purple-300 font-medium">Disponible para proyectos</span>
+                        </div>
+
+                        <!-- Name & Title -->
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-4">
+                            Fernando Santos
+                            <span class="block text-gradient-hero mt-1">Ingeniero de Software</span>
+                        </h1>
+
+                        <!-- Dynamic Typing Role Banner -->
+                        <div class="flex items-center gap-2.5 font-mono text-lg sm:text-xl md:text-2xl text-slate-300 mb-6 min-h-[2.2rem]">
+                            <span class="text-purple-400">&gt;</span>
+                            <span id="typing-text" class="text-cyan-400 font-semibold"></span>
+                            <span class="cursor-blink">|</span>
+                        </div>
+
+                        <!-- Value Proposition -->
+                        <p class="text-base sm:text-lg text-slate-300/90 max-w-2xl leading-relaxed mb-8">
+                            Especializado en diseñar y construir <strong class="text-white font-medium">arquitecturas backend robustas en .NET</strong>, APIs REST escalables, bases de datos optimizadas e interfaces interactivas con React. Enfocado en código limpio, mantenibilidad y soluciones que resuelven problemas de negocio reales.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                            <a href="#proyectos" class="btn-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white shadow-glow-purple text-sm sm:text-base w-full sm:w-auto">
+                                <i data-lucide="layers" class="w-4 h-4"></i>
+                                <span>Ver Proyectos</span>
+                            </a>
+                            <a href="#contacto" class="btn-secondary flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-200 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all text-sm sm:text-base w-full sm:w-auto">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Contactar</span>
+                            </a>
+                            <button id="btn-copy-email-hero" class="btn-icon-link p-3.5 rounded-xl border border-white/10 hover:border-purple-500/40 text-slate-300 hover:text-white transition-all bg-white/[0.02]" title="Copiar correo electrónico">
+                                <i data-lucide="copy" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Quick Technical Badges -->
+                        <div class="mt-10 pt-6 border-t border-white/[0.08] flex flex-wrap items-center gap-3 w-full text-xs font-mono text-slate-400">
+                            <span class="text-slate-500 uppercase tracking-wider text-[11px]">Enfoque:</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-purple-300">Clean Architecture</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-cyan-300">C# / .NET 10</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-slate-300">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-indigo-300">React + TS</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual Bento Card: Interactive Code Terminal -->
+                    <div class="lg:col-span-5 w-full">
+                        <div class="hero-terminal-card rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur-xl p-5 shadow-2xl relative overflow-hidden group">
+                            <!-- Terminal Header -->
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-400 flex items-center gap-1.5">
+                                    <i data-lucide="cpu" class="w-3.5 h-3.5 text-purple-400"></i> FerchoDev.Architecture.cs
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-500">.NET 10</span>
+                            </div>
+
+                            <!-- Code Content in JetBrains Mono -->
+                            <pre class="font-mono text-xs sm:text-sm leading-relaxed text-slate-300 overflow-x-auto"><code class="block"><span class="text-purple-400">namespace</span> <span class="text-cyan-300">FerchoDev.Domain.Entities</span>;
+
+<span class="text-purple-400">public class</span> <span class="text-amber-300">SoftwareEngineer</span> : <span class="text-indigo-300">IProblemSolver</span>
+{
+    <span class="text-slate-500">// Perfil y especialidad</span>
+    <span class="text-purple-400">public string</span> Name =&gt; <span class="text-emerald-300">"Fernando Santos"</span>;
+    <span class="text-purple-400">public string</span> Location =&gt; <span class="text-emerald-300">"Barranquilla, CO"</span>;
+    <span class="text-purple-400">public string</span> Core =&gt; <span class="text-emerald-300">".NET & Clean Architecture"</span>;
+
+    <span class="text-slate-500">// Stack representativo</span>
+    <span class="text-purple-400">public readonly</span> <span class="text-cyan-300">StackEngine</span> Stack = <span class="text-purple-400">new</span>()
+    {
+        Backend = [<span class="text-emerald-300">"C#"</span>, <span class="text-emerald-300">"ASP.NET Core"</span>, <span class="text-emerald-300">"EF Core"</span>],
+        Database = [<span class="text-emerald-300">"PostgreSQL"</span>, <span class="text-emerald-300">"SQL Server"</span>],
+        Frontend = [<span class="text-emerald-300">"React"</span>, <span class="text-emerald-300">"TypeScript"</span>],
+        Principles = [<span class="text-emerald-300">"SOLID"</span>, <span class="text-emerald-300">"CQRS"</span>, <span class="text-emerald-300">"REST APIs"</span>]
+    };
+
+    <span class="text-purple-400">public async Task</span>&lt;<span class="text-cyan-300">ImpactResult</span>&gt; <span class="text-blue-400">DeliverValueAsync</span>()
+    {
+        <span class="text-purple-400">return await</span> BuildScalableSystemsAsync(
+            cleanCode: <span class="text-rose-400">true</span>, 
+            highPerformance: <span class="text-rose-400">true</span>
+        );
+    }
+}</code></pre>
+
+                            <!-- Subtle Card Footer -->
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                                <span class="flex items-center gap-1.5 text-emerald-400">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Build Succeeded (0 Errors)
+                                </span>
+                                <span class="text-slate-500">Rider IDE & Linux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sobre Mí & Formación Section -->
+        <section id="sobre-mi" class="py-24 relative border-t border-white/[0.06] bg-slate-950/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="section-tag">Trayectoria & Filosofía</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-2">
+                        Código limpio, arquitectura sólida y foco en soluciones reales
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg mt-4">
+                        Conoce el trasfondo técnico, los principios y la motivación detrás de cada sistema que diseño.
+                    </p>
+                </div>
+
+                <!-- Bento Grid: About & Highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+                    <!-- Big Card: Bio & Passion -->
+                    <div class="md:col-span-8 bento-card p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+                                    <i data-lucide="user-check" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">¿Quién soy?</h3>
+                                    <p class="text-xs font-mono text-purple-300">Fernando Santos — Developer en constante evolución</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                                <p>
+                                    Soy un desarrollador de software radicado en <strong class="text-white">Barranquilla, Colombia</strong>, con una profunda pasión por el diseño de arquitecturas backend modernas, eficientes y seguras. Mi enfoque primordial se centra en el ecosistema <strong class="text-white">.NET (C#)</strong>, aplicando principios de <strong class="text-white">Clean Architecture</strong>, Domain-Driven Design (DDD) y patrones de diseño para construir software que perdura y escala.
+                                </p>
+                                <p>
+                                    Complemento mi fortaleza backend con experiencia práctica en el frontend moderno usando <strong class="text-white">React y TypeScript</strong>, permitiéndome entender el ciclo de vida completo de un producto digital, desde el modelado relacional en <strong class="text-white">PostgreSQL</strong> hasta la experiencia interactiva final de los usuarios.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Highlights Pills -->
+                        <div class="mt-8 pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Principios SOLID</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Alta cohesión, bajo acoplamiento y código desacoplado.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="database" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Datos Confiables</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Modelado relacional e integridad referencial estricta.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="git-branch" class="w-5 h-5 text-indigo-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Flujo Moderno</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Control de versiones semántico, CI/CD y Docker.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Riwi Education & Training -->
+                    <div class="md:col-span-4 bento-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                        <div class="glow-spot absolute -top-10 -right-10 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div>
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Formación Intensiva</h3>
+                                    <span class="text-xs font-mono text-cyan-300">Riwi — Software Training</span>
+                                </div>
+                            </div>
+
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Entrenamiento inmersivo y de alta exigencia técnica en desarrollo de software integral, enfocado en simulación de entornos de producción ágiles, resolución de retos algorítmicos y trabajo colaborativo bajo estándares de la industria.
+                            </p>
+
+                            <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    <span>Metodologías ágiles & SCRUM</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    <span>Arquitectura en capas & API design</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    <span>Testing, Seguridad (JWT) & Docker</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+                            <span>Metodología</span>
+                            <span class="text-cyan-400 font-semibold">100% Práctica y Proyectos</span>
+                        </div>
+                    </div>
+
+                    <!-- Mini Bento Card: Mindset & Problem Solving -->
+                    <div class="md:col-span-6 bento-card p-6 rounded-2xl flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0">
+                            <i data-lucide="zap" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Enfoque Proactivo</h4>
+                            <p class="text-sm text-slate-400 mt-1 leading-normal">
+                                Capacidad para descomponer requerimientos complejos en componentes modulares, testeables y fáciles de escalar con mínima fricción técnica.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mini Bento Card: Environment & Tools -->
+                    <div class="md:col-span-6 bento-card p-6 rounded-2xl flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                            <i data-lucide="terminal" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Entorno Productivo</h4>
+                            <p class="text-sm text-slate-400 mt-1 leading-normal">
+                                Flujo de trabajo optimizado en <span class="text-slate-200 font-medium">Linux</span> y <span class="text-slate-200 font-medium">JetBrains Rider</span>, aprovechando al máximo herramientas de inspección, perfilado y depuración profunda.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tech Stack Bento Grid Section -->
+        <section id="stack" class="py-24 relative border-t border-white/[0.06]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="section-tag">Arsenal Técnico</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-2">
+                        Tecnologías que potencian mis soluciones
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg mt-4">
+                        Herramientas, frameworks y lenguajes seleccionados para garantizar alto rendimiento, escalabilidad y una experiencia de desarrollo limpia.
+                    </p>
+                </div>
+
+                <!-- Bento Grid of Tech Categories -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+                    <!-- Category 1: Backend & Core (.NET Master Hub) - Spans 7 cols -->
+                    <div class="md:col-span-7 bento-card p-6 sm:p-8 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                                    <i data-lucide="server" class="w-5 h-5"></i>
+                                </span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Backend & Arquitectura</h3>
+                                    <p class="text-xs text-purple-300 font-mono">Core Principal • Alto Rendimiento</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Principal</span>
+                        </div>
+
+                        <!-- Tech Grid items with Devicon -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                            <!-- C# -->
+                            <div class="tech-badge group">
+                                <i class="devicon-csharp-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">C#</div>
+                                    <div class="tech-desc">Lenguaje core</div>
+                                </div>
+                            </div>
+                            <!-- .NET -->
+                            <div class="tech-badge group">
+                                <i class="devicon-dot-net-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">.NET 8 / 10</div>
+                                    <div class="tech-desc">Runtime & SDK</div>
+                                </div>
+                            </div>
+                            <!-- ASP.NET Core -->
+                            <div class="tech-badge group">
+                                <i class="devicon-dotnetcore-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">ASP.NET Core</div>
+                                    <div class="tech-desc">Web APIs REST</div>
+                                </div>
+                            </div>
+                            <!-- EF Core -->
+                            <div class="tech-badge group">
+                                <i data-lucide="database" class="w-6 h-6 text-indigo-400 group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">EF Core</div>
+                                    <div class="tech-desc">ORM & Migrations</div>
+                                </div>
+                            </div>
+                            <!-- LINQ -->
+                            <div class="tech-badge group">
+                                <i data-lucide="filter" class="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">LINQ</div>
+                                    <div class="tech-desc">Queries eficientes</div>
+                                </div>
+                            </div>
+                            <!-- JWT & Auth -->
+                            <div class="tech-badge group">
+                                <i data-lucide="key-round" class="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">JWT</div>
+                                    <div class="tech-desc">Auth & RBAC</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Architecture footer badge -->
+                        <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
+                            <span class="text-slate-500">Patrones:</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-purple-300">Clean Architecture</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">Repository & UnitOfWork</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">Dependency Injection</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Databases & Storage - Spans 5 cols -->
+                    <div class="md:col-span-5 bento-card p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                                    <i data-lucide="hard-drive" class="w-5 h-5"></i>
+                                </span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Bases de Datos</h3>
+                                    <p class="text-xs text-cyan-300 font-mono">Modelado Relacional & SQL</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <div class="tech-badge group">
+                                    <i class="devicon-postgresql-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <div class="tech-name">PostgreSQL</div>
+                                        <div class="tech-desc">Motor preferido</div>
+                                    </div>
+                                </div>
+                                <div class="tech-badge group">
+                                    <i class="devicon-microsoftsqlserver-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <div class="tech-name">SQL Server</div>
+                                        <div class="tech-desc">T-SQL & Relacional</div>
+                                    </div>
+                                </div>
+                                <div class="tech-badge group">
+                                    <i data-lucide="table-2" class="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <div class="tech-name">SQL</div>
+                                        <div class="tech-desc">DDL, DML, Índices</div>
+                                    </div>
+                                </div>
+                                <div class="tech-badge group">
+                                    <i data-lucide="git-commit" class="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <div class="tech-name">Migraciones</div>
+                                        <div class="tech-desc">Versionado de DB</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="mt-6 text-xs text-slate-400 font-mono border-t border-white/5 pt-3">
+                            Enfoque en normalización, relaciones 1:N y N:M con llaves foráneas consistentes e índices optimizados.
+                        </p>
+                    </div>
+
+                    <!-- Category 3: Frontend & UI - Spans 6 cols -->
+                    <div class="md:col-span-6 bento-card p-6 sm:p-8 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                                <i data-lucide="layout" class="w-5 h-5"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Frontend Moderno</h3>
+                                <p class="text-xs text-blue-300 font-mono">React, Interfaces & Tipado</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                            <div class="tech-badge group">
+                                <i class="devicon-react-original colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">React</div>
+                                    <div class="tech-desc">Componentes & Hooks</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-typescript-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">TypeScript</div>
+                                    <div class="tech-desc">Tipado estricto</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-javascript-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">JavaScript</div>
+                                    <div class="tech-desc">ES6+ Modular</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-html5-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">HTML5</div>
+                                    <div class="tech-desc">Semántica web</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-css3-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">CSS3</div>
+                                    <div class="tech-desc">Grid, Flex & Anim</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-tailwindcss-original colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Tailwind / UI</div>
+                                    <div class="tech-desc">Diseño responsivo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: DevOps, Cloud & Tooling - Spans 6 cols -->
+                    <div class="md:col-span-6 bento-card p-6 sm:p-8 rounded-2xl relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                                <i data-lucide="wrench" class="w-5 h-5"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">DevOps & Herramientas</h3>
+                                <p class="text-xs text-emerald-300 font-mono">Contenedores, Nube & IDE</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                            <div class="tech-badge group">
+                                <i class="devicon-docker-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Docker</div>
+                                    <div class="tech-desc">Contenedores & env</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-azure-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Azure</div>
+                                    <div class="tech-desc">Cloud deployment</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-git-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Git & GitHub</div>
+                                    <div class="tech-desc">Control de versiones</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-rider-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">JetBrains Rider</div>
+                                    <div class="tech-desc">IDE principal</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-linux-plain text-2xl text-slate-200 group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Linux</div>
+                                    <div class="tech-desc">Entorno de dev</div>
+                                </div>
+                            </div>
+                            <div class="tech-badge group">
+                                <i class="devicon-postman-plain colored text-2xl group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <div class="tech-name">Postman</div>
+                                    <div class="tech-desc">API testing</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Featured Projects Section -->
+        <section id="proyectos" class="py-24 relative border-t border-white/[0.06] bg-slate-950/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div>
+                        <span class="section-tag">Portafolio de Soluciones</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-2">
+                            Proyectos Destacados
+                        </h2>
+                        <p class="text-slate-400 text-base sm:text-lg mt-3 max-w-2xl">
+                            Soluciones completas donde convergen la arquitectura limpia, la persistencia estructurada y el rendimiento en producción.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+                            <span>Ver todo en GitHub</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                    <!-- Project 1: FIRMEZA (Flagship) - Spans 12 cols (Editorial Hero Project) -->
+                    <div class="lg:col-span-12 project-card rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur-xl p-6 sm:p-10 relative overflow-hidden group">
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            
+                            <!-- Project Info Left -->
+                            <div class="lg:col-span-7 flex flex-col justify-between">
+                                <div>
+                                    <!-- Badges -->
+                                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                                        <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                            Proyecto Insignia
+                                        </span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/20">
+                                            Full-Stack & Clean Architecture
+                                        </span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-mono text-slate-400 bg-white/5 border border-white/10">
+                                            .NET 10 + React
+                                        </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-purple-300 transition-colors">
+                                        Firmeza — Gestión de Suministros de Construcción
+                                    </h3>
+
+                                    <!-- Description -->
+                                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mt-4">
+                                        Plataforma integral orientada a la industria de la construcción para optimizar inventarios, pedidos de materiales, trazabilidad de despachos y control de proveedores con múltiples almacenes.
+                                    </p>
+
+                                    <!-- Key Architectural Highlights -->
+                                    <div class="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
+                                        <div class="flex items-center gap-2.5">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                            <span><strong>Clean Architecture en 4 capas</strong> (Domain, Application, Infrastructure, WebAPI).</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                            <span><strong>Autenticación robusta con JWT</strong> y control de acceso basado en roles (RBAC).</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                            <span><strong>Persistencia en PostgreSQL</strong> mediante Entity Framework Core y migraciones automáticas.</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                            <span><strong>Dashboard en React + TypeScript</strong> para visualización de stock y órdenes en tiempo real.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tech Tags -->
+                                <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">.NET 10</span>
+                                    <span class="tech-tag">Clean Architecture</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">EF Core</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">JWT</span>
+                                    <span class="tech-tag">Docker</span>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="mt-6 flex flex-wrap items-center gap-4">
+                                    <button class="btn-primary open-project-modal flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white" data-project="firmeza">
+                                        <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                                        <span>Detalles de Arquitectura</span>
+                                    </button>
+                                    <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 border border-white/10 hover:border-white/20">
+                                        <i data-lucide="github" class="w-4 h-4"></i>
+                                        <span>Repositorio</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Project Graphic / Mockup Right -->
+                            <div class="lg:col-span-5">
+                                <div class="project-mockup-frame rounded-xl border border-white/10 bg-slate-950 p-4 shadow-2xl relative overflow-hidden">
+                                    <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4 text-xs font-mono text-slate-400">
+                                        <span class="flex items-center gap-1.5 text-cyan-400">
+                                            <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i> Firmeza ERP Dashboard
+                                        </span>
+                                        <span class="text-emerald-400 text-[11px]">API Status: 200 OK</span>
+                                    </div>
+
+                                    <!-- Mockup Visual Elements -->
+                                    <div class="space-y-3 font-mono text-xs">
+                                        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-between">
+                                            <span class="text-slate-400">Total Materiales</span>
+                                            <span class="text-white font-bold">14,820 Unidades</span>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-between">
+                                            <span class="text-slate-400">Órdenes Despachadas</span>
+                                            <span class="text-purple-400 font-bold">98.4% On-time</span>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                                            <code>GET /api/v1/orders/stock-alerts [Protected: Role=Admin]</code>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-2 text-[11px]">
+                                            <div class="p-2.5 rounded bg-slate-900 border border-white/5 text-slate-300">
+                                                <div class="text-slate-500">PostgreSQL Pool</div>
+                                                <div class="text-emerald-400 font-semibold">Active: Healthy</div>
+                                            </div>
+                                            <div class="p-2.5 rounded bg-slate-900 border border-white/5 text-slate-300">
+                                                <div class="text-slate-500">JWT Token Expiry</div>
+                                                <div class="text-cyan-400 font-semibold">60m Refresh Flow</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                                        <span>Clean Architecture Core</span>
+                                        <span class="text-purple-400">FerSp29/Firmeza</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Project 2: FRAME (Microservices & Web API Template) - Spans 6 cols -->
+                    <div class="lg:col-span-6 project-card rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                                    Backend Framework / Boilerplate
+                                </span>
+                                <i data-lucide="box" class="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                                Frame — Arquitectura Base para APIs en .NET
+                            </h3>
+
+                            <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                Plantilla y acelerador arquitectónico desacoplado para servicios web en .NET. Integra configuración automatizada de logging estructurado, manejo global de excepciones, validaciones fluidas y contenedores Docker listos para producción.
+                            </p>
+
+                            <ul class="mt-5 space-y-2 text-xs sm:text-sm text-slate-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                    <span>Manejo centralizado de errores con ProblemDetails RFC 7807.</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                    <span>Inyección de dependencias modular por ensamblados.</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                                    <span>Documentación interactiva con OpenAPI / Scalar / Swagger.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag">.NET 8/10</span>
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">Clean Architecture</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Swagger</span>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <button class="btn-secondary open-project-modal flex-1 py-2 rounded-xl text-xs font-semibold text-slate-200 border border-white/10 hover:border-cyan-500/40" data-project="frame">
+                                    Ver especificación
+                                </button>
+                                <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl border border-white/10 hover:border-white/20 text-slate-300 hover:text-white" title="GitHub">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Order & Billing Engine API - Spans 6 cols -->
+                    <div class="lg:col-span-6 project-card rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                                    Enterprise REST API
+                                </span>
+                                <i data-lucide="file-check-2" class="w-5 h-5 text-slate-400 group-hover:text-indigo-400 transition-colors"></i>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                Nexus Billing & Inventory API
+                            </h3>
+
+                            <p class="text-slate-300 text-sm leading-relaxed mt-3">
+                                Motor transaccional de facturación electrónica y liquidación de inventarios con control de concurrencia optimista, transacciones atómicas y reportes exportables en tiempo real.
+                            </p>
+
+                            <ul class="mt-5 space-y-2 text-xs sm:text-sm text-slate-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                                    <span>Garantía ACID en transacciones de compra y venta complejas.</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                                    <span>Consultas con LINQ de alta eficiencia y paginación en BD.</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                                    <span>Seguridad perimetral y rate limiting integrado.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag">ASP.NET Core</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Entity Framework</span>
+                                <span class="tech-tag">LINQ</span>
+                                <span class="tech-tag">REST</span>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <button class="btn-secondary open-project-modal flex-1 py-2 rounded-xl text-xs font-semibold text-slate-200 border border-white/10 hover:border-indigo-500/40" data-project="nexus">
+                                    Ver especificación
+                                </button>
+                                <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl border border-white/10 hover:border-white/20 text-slate-300 hover:text-white" title="GitHub">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contacto" class="py-24 relative border-t border-white/[0.06]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-4xl mx-auto bento-card p-8 sm:p-12 rounded-3xl relative overflow-hidden border border-white/15 bg-slate-900/60 backdrop-blur-2xl">
+                    
+                    <div class="glow-spot absolute -bottom-20 -right-20 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="glow-spot absolute -top-20 -left-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
+                        <span class="section-tag">¿Creamos algo grande juntos?</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-3">
+                            Iniciemos una conversación
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base mt-4">
+                            Estoy abierto a oportunidades laborales, proyectos desafiantes y colaboraciones enfocadas en backend con .NET y desarrollo Full-Stack.
+                        </p>
+                    </div>
+
+                    <!-- Direct Contact Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+                        
+                        <!-- Email Card with Copy button -->
+                        <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col justify-between hover:border-purple-500/40 transition-all">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-xs font-mono text-slate-400">Correo Electrónico</div>
+                                    <div class="text-sm font-semibold text-white break-all">fsantosp29@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button id="btn-copy-email-card" class="flex-1 py-2 px-3 rounded-lg bg-white/5 hover:bg-purple-500/20 text-purple-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors border border-purple-500/20">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                    <span id="copy-btn-text">Copiar Email</span>
+                                </button>
+                                <a href="mailto:fsantosp29@gmail.com" class="py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    <span>Escribir</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- GitHub & Social Card -->
+                        <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-xs font-mono text-slate-400">GitHub Repositorios</div>
+                                    <div class="text-sm font-semibold text-white">github.com/FerSp29</div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <a href="https://github.com/FerSp29" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors border border-cyan-500/20">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    <span>Visitar Perfil</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Location & Availability Strip -->
+                    <div class="text-center pt-6 border-t border-white/10 text-xs font-mono text-slate-400 flex flex-wrap items-center justify-center gap-4">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-purple-400"></i> Barranquilla, Atlántico, Colombia
+                        </span>
+                        <span class="text-slate-600">•</span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-cyan-400"></i> Zona horaria: COT (UTC-5)
+                        </span>
+                        <span class="text-slate-600">•</span>
+                        <span class="flex items-center gap-1.5 text-emerald-400">
+                            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Remoto / Híbrido
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/[0.08] relative bg-black/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-400">
+            <div class="flex items-center gap-2 font-mono">
+                <span class="text-white font-bold">Fercho<span class="text-cyan-400">.dev</span></span>
+                <span class="text-slate-600">|</span>
+                <span>Fernando Santos &copy; <span id="current-year">2026</span></span>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs font-mono">
+                <span class="text-slate-500">Diseñado con Clean UX & High Performance</span>
+                <a href="#hero" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Subir al inicio">
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" role="dialog" aria-modal="true">
+        <div class="modal-container w-full max-w-3xl rounded-2xl border border-white/20 bg-slate-950 p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            
+            <button id="close-modal-btn" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors" aria-label="Cerrar modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div id="modal-content">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Copying Actions -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900/95 border border-purple-500/40 text-purple-200 shadow-2xl backdrop-blur-xl text-sm font-medium">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span id="toast-message">¡Email copiado al portapapeles!</span>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>
